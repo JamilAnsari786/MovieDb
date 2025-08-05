@@ -22,13 +22,13 @@ const Navbar = () => {
         const res = await axios.get(
           `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=1`
         );
-        setSuggestions(res.data.results.slice(0, 5)); // show top 5
+        setSuggestions(res.data.results.slice(0, 5)); 
       } catch (err) {
         console.error("Error fetching suggestions:", err);
       }
     };
 
-    const delay = setTimeout(fetchSuggestions, 300); // debounce
+    const delay = setTimeout(fetchSuggestions, 300); 
     return () => clearTimeout(delay);
   }, [query]);
 
